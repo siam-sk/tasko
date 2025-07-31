@@ -120,20 +120,9 @@ client/
 
 ---
 
-## 📄 Submission
-
-- [Submit your project here](https://docs.google.com/forms/d/e/1FAIpQLSfkpe3kWrZQOb1bQXNhGXVxidwwXY8Lezw1_AeEocKTIfO54w/viewform?usp=dialog)
-
----
-
 ## 📝 Notes
 
 - The UI strictly follows the provided [Figma design](https://www.figma.com/design/5iMEaU0uMrI5AWsAxHfkba/fives_m32220_FO2186F5A8386--Copy-?node-id=17945-20444&m=dev).
 - Error handling and validation are implemented on both frontend and backend.
 - The app is ready for deployment (Vercel/Netlify for frontend, Render/Heroku for backend, MongoDB Atlas).
 
----
-
-## 🙏 Thank You!
-
-Feel free to reach out for any
