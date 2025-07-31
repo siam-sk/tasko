@@ -35,16 +35,20 @@ const ResetPassword = () => {
 
   return (
     <div className="min-h-screen relative">
-      {/* Top 20% */}
+      
       <div className="relative h-[20vh] bg-black">
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#60E5AE33] to-[#60E5AE] opacity-40 pointer-events-none"></div>
-        <img
-          src="/src/assets/login.png"
-          alt="Login"
-          className="absolute right-8 top-1/2 -translate-y-1/2 z-10 h-[80%]"
-        />
+        
+        <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 h-[80%] flex items-center">
+          <img
+            src="/src/assets/login.png"
+            alt="Login"
+            className="w-full h-full object-contain opacity-80 mix-blend-multiply"
+            style={{ filter: 'brightness(0.7)' }}
+          />
+        </div>
       </div>
-      {/* Bottom 80% */}
+      
       <div className="h-[80vh] bg-base-200"></div>
       
       <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none">
