@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
 import api from '../utils/api'
 import { useNavigate } from 'react-router'
+import { useAppContext } from '../context/AppContext.jsx'
 
 const Signup = () => {
   const [name, setName] = useState('')
@@ -12,6 +13,7 @@ const Signup = () => {
   const [showConfirm, setShowConfirm] = useState(false)
   const [error, setError] = useState('')
   const navigate = useNavigate()
+  const { setUser } = useAppContext() 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
@@ -21,7 +23,8 @@ const Signup = () => {
       return
     }
     try {
-      await api.post('/users', { name, email, password })
+      const res = await api.post('/users', { name, email, password })
+      setUser(res.data)
       navigate('/dashboard')
     } catch (err) {
       setError(
@@ -33,7 +36,7 @@ const Signup = () => {
 
   return (
     <div className="flex min-h-screen">
-      {/* Left Side */}
+      
       <div className="w-1/2 flex items-center justify-center bg-black relative">
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#60E5AE33] to-[#60E5AE] opacity-40 pointer-events-none"></div>
         <img
@@ -42,7 +45,7 @@ const Signup = () => {
           className="z-10 w-4/5 max-w-lg mx-auto"
         />
       </div>
-      {/* Right Side */}
+      
       <div className="w-1/2 flex items-center justify-center bg-base-200">
         <div className="w-full max-w-md p-8 rounded-lg">
           <h2 className="text-3xl font-bold mb-2 text-center">Sign Up</h2>
@@ -121,13 +124,13 @@ const Signup = () => {
               Sign Up
             </button>
           </form>
-          {/* Solid line with "or" */}
+          
           <div className="flex items-center my-6">
             <div className="flex-grow border-t border-solid border-base-300"></div>
             <span className="mx-4 text-base-content/60">or</span>
             <div className="flex-grow border-t border-solid border-base-300"></div>
           </div>
-          {/* Login link */}
+          
           <div className="text-center">
             <span className="text-sm text-base-content/70">Already have an account? </span>
             <a href="/login" className="text-black font-semibold hover:underline">Login</a>

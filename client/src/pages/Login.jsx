@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { FiEye, FiEyeOff } from 'react-icons/fi'
 import api from '../utils/api'
-import { useNavigate } from 'react-router'
+import { useNavigate, Navigate } from 'react-router'
+import { useAppContext } from '../context/AppContext.jsx'
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -10,13 +11,14 @@ const Login = () => {
   const [remember, setRemember] = useState(false)
   const [error, setError] = useState('')
   const navigate = useNavigate()
+  const { user, setUser } = useAppContext() 
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setError('')
     try {
-      await api.post('/users/login', { email, password })
-      
+      const res = await api.post('/users/login', { email, password })
+      setUser(res.data)
       navigate('/dashboard')
     } catch (err) {
       setError(
@@ -26,9 +28,13 @@ const Login = () => {
     }
   }
 
+  if (user) {
+    return <Navigate to="/dashboard" />
+  }
+
   return (
     <div className="flex min-h-screen">
-      {/* Left Side */}
+      
       <div className="w-1/2 flex items-center justify-center bg-black relative">
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#60E5AE33] to-[#60E5AE] opacity-40 pointer-events-none"></div>
         <img
@@ -37,7 +43,7 @@ const Login = () => {
           className="z-10 w-4/5 max-w-lg mx-auto"
         />
       </div>
-      {/* Right Side */}
+      
       <div className="w-1/2 flex items-center justify-center bg-base-200">
         <div className="w-full max-w-md p-8 rounded-lg">
           <h2 className="text-3xl font-bold mb-2 text-center">Login</h2>
@@ -96,13 +102,13 @@ const Login = () => {
               Login
             </button>
           </form>
-          {/* Solid line with "or" */}
+          
           <div className="flex items-center my-6">
             <div className="flex-grow border-t border-solid border-base-300"></div>
             <span className="mx-4 text-base-content/60">or</span>
             <div className="flex-grow border-t border-solid border-base-300"></div>
           </div>
-          {/* Signup link */}
+          
           <div className="text-center">
             <span className="text-sm text-base-content/70">Don&apos;t have an account? </span>
             <a href="/signup" className="text-black font-semibold hover:underline">Sign up</a>
