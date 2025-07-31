@@ -16,6 +16,14 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  points: {
+    type: Number,
+    default: 0,
+  },
+  level: {
+    type: Number,
+    default: 1,
+  },
 }, {
   timestamps: true,
 });

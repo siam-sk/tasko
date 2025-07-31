@@ -65,7 +65,9 @@ const updateTask = async (req, res, next) => {
   }
 };
 
-
+// @desc    Delete a task
+// @route   DELETE /api/tasks/:id
+// @access  Private
 const deleteTask = async (req, res, next) => {
   try {
     const task = await Task.findById(req.params.id);
@@ -86,6 +88,24 @@ const deleteTask = async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+};
+
+export const getStatusOptions = (req, res) => {
+  // Get enum values from the schema
+  const statusEnum = Task.schema.path('status').enumValues;
+  res.json(statusEnum);
+};
+
+export const getCategoryOptions = (req, res) => {
+  const categories = [
+    "Arts & Craft",
+    "Nature",
+    "Family",
+    "Sport",
+    "Friends",
+    "Meditation"
+  ];
+  res.json(categories);
 };
 
 export { getTasks, createTask, updateTask, deleteTask };
