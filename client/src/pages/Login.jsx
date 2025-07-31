@@ -3,6 +3,7 @@ import { FiEye, FiEyeOff } from 'react-icons/fi'
 import api from '../utils/api'
 import { useNavigate, Navigate } from 'react-router'
 import { useAppContext } from '../context/AppContext.jsx'
+import LoginImage from '../assets/login.png';
 
 const Login = () => {
   const [email, setEmail] = useState('')
@@ -38,7 +39,7 @@ const Login = () => {
       <div className="w-1/2 flex items-center justify-center bg-black relative">
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#60E5AE33] to-[#60E5AE] opacity-40 pointer-events-none"></div>
         <img
-          src="/src/assets/login.png"
+          src={LoginImage}
           alt="Login"
           className="z-10 w-4/5 max-w-lg mx-auto"
         />

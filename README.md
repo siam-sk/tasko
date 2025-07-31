@@ -6,11 +6,7 @@ Tasko is a full-stack task management app built with the MERN stack. It allows u
 
 ## 🚀 Live Website
 
-[Live Demo Link](https://your-live-site-link.com)
-
-## 📦 GitHub Repository
-
-[GitHub Repo Link](https://github.com/your-username/tasko)
+[Live Demo Link](https://tasko-alpha.vercel.app/login)
 
 ---
 

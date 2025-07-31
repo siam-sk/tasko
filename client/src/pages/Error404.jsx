@@ -1,4 +1,6 @@
 import { useNavigate } from 'react-router'
+import LoginImage from '../assets/login.png';
+import Error404Image from '../assets/404.svg';
 
 const Error404 = () => {
   const navigate = useNavigate()
@@ -10,7 +12,7 @@ const Error404 = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-transparent via-[#60E5AE33] to-[#60E5AE] opacity-40 pointer-events-none"></div>
         <div className="absolute right-8 top-1/2 -translate-y-1/2 z-10 h-[80%] flex items-center">
           <img
-            src="/src/assets/login.png"
+            src={LoginImage}
             alt="404"
             className="w-full h-full object-contain opacity-80 mix-blend-multiply"
             style={{ filter: 'brightness(0.7)' }}
@@ -23,7 +25,7 @@ const Error404 = () => {
       <div className="absolute top-0 left-0 w-full h-full flex justify-center items-center pointer-events-none">
         <div className="w-full flex justify-center pointer-events-auto">
           <div className="max-w-6xl w-full bg-base-100 shadow-2xl rounded-2xl px-80 py-32 my-52 flex flex-col items-center">
-            <img src="/src/assets/404.svg" alt="404" className="w-96 h-96 mb-12" />
+            <img src={Error404Image} alt="404" className="w-96 h-96 mb-12" />
             <button
               className="btn w-full text-lg"
               style={{ backgroundColor: '#60E5AE', color: '#222', border: 'none' }}
